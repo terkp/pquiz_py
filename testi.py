@@ -1,2 +1,3 @@
-// test
-// pascal wat auch hier
+# test
+# pascal wat auch hier
+print("Hallo")
