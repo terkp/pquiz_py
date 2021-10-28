@@ -3,7 +3,7 @@ import fragenEinlesen
 import FragenHandler
 from tkinter.filedialog import askopenfilename
 
-hostName = "localhost"
+hostName = "0.0.0.0"
 serverPort = 8080
 
 class Server(BaseHTTPRequestHandler):
