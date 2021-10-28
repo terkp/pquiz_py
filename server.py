@@ -1,7 +1,12 @@
 from http.server import BaseHTTPRequestHandler,HTTPServer
 import fragenEinlesen
 import FragenHandler
+import pygame
+#import Anzeige
+#import Anzeige2
+from _thread import start_new_thread
 from tkinter.filedialog import askopenfilename
+from tkinter import *
 
 hostName = "0.0.0.0"
 serverPort = 8080
@@ -20,7 +25,11 @@ if __name__ == "__main__":
     leseEingabe = fragenEinlesen.lesen()
     liste_Fragen = leseEingabe.fragen_einlesen(name)
     fragenHandler = FragenHandler.FragenHandler(liste_Fragen)
-    fragenHandler.readMessage(liste_Fragen[0])
+    fragenHandler.readMessage(liste_Fragen[6])
+
+    #root = Tk()
+    #Ausgabe = Anzeige2.App(root)
+    #start_new_thread(Anzeige.App,(Buff2,))
     webServer = HTTPServer((hostName, serverPort), Server)
 
     print("Server started http://%s:%s" % (hostName, serverPort))
