@@ -1,0 +1,59 @@
+normal#In welche Richtung fließt der Jordan?#vom Toten Meer Richtung Golan#vom Schilfmeer ins Mittelmeer#vom Roten Meer zum Toten Meer#vom See Genezareth ins Tote Meer#d
+normal#Wie viele Sinfonien hat Mozart geschrieben?#9#41#27#51#b
+normal#Was sind die ersten Worte von Jesus im Markusevangelium(Neues Leben)?#„Jetzt ist die Zeit gekommen. Das Reich Gottes ist nahe!“#„Es muss sein. Wir müssen alles so halten, wie es von Gott aus sein soll.“#„Warum habt ihr mich gesucht?“#„Was wollt ihr?“#a
+schaetzen#Wie häufig taucht das Wort „Gott“ in der Bibel auf (Neues Leben)?#5108
+normal#Wann trat die sogenannte Reichstagsbrandverordnung in Kraft?#29. März 1933#31. Mai 1933#28. Februar 1933#30. April 1933#c
+schaetzen#Schätzfrage: Wie groß ist die Differenz zwischen dem kleinsten und größten Menschen der Welt (in cm)?#196
+sortier#Sortiere diese Komponisten nach ihrem Todesdatum (aufsteigend).#Puccini#Beethoven#Mozart#Bach#d#b#c#a
+sortier#Sortiere nach Ländergröße (aufsteigend).#Monaco#Dänemark#Jamaika#Zypern#a#d#c#b
+schaetzen#Schätzfrage: Wie viele Einwohner hatte das britische Empire zu seiner größten Ausdehnung (in Millionen)?#458 
+normal#Wie viel Liter Wasser kann ein Kamel in 15 Minuten trinken?#10 l#100 l#200 l#300 l#c
+normal#Wann wurde das Mobiltelefon zum Patent angemeldet?#1942#1974#1981#1987#a
+normal#Um wie viele Zentimeter schrumpft der Eifelturm bei Kälte?#5 cm#10 cm#15 cm#gar nicht#c
+normal#Welchen Beruf hat Queen Elisabeth II. ursprünglich gelernt?#Lokomotivführerin#Lastwagenmechanikerin#Prinzessin#Krankenschwester#b
+normal#Was enthält am meisten Eisen?#Spinat#Austern#Kardamon#Linsen#c
+normal#Wie heißt eine Epidemie unter Tieren?#Epizootie#Animalogie#Pandademie#Epitierie#a
+normal#In welchem Artikel des Grundgesetzes steht: "Alle Staatsgewalt geht vom Volke aus"?#Artikel 1#Artikel 20#Artikel 79#Artikel 100#b
+normal#Mit welchem Verfahren wird die Verteilung der Mandate nach der Bundestagswahl berechnet?#Sainte-Lagué#Hare-Niemeyer#D'Hondt#Hill-Huntington#a
+normal#Was heißt Demokratie wörtlich?#Herrschaft des Volkes#Herrschaft der Regierung#Herrschaft des Parlaments#Herrschaft der Minderheit#a
+normal#Wieviele Sterne hat die Europaflagge?#6#12#21#27#b
+sortier#Ordne die Bundespräsidenten nach ihrer Amtszeit, von früh nach spät#Gustav Heinemann#Theodor Heuss#Roman Herzog#Walter Scheel#b#a#d#c
+normal#Was geschah am 17. Juni 1953?#Die internationale Anerkennung der DDR als Staat#Ein Volksaufstand in der DDR#Der deutsch-sowjetische Vertragsschluss#Eine Währungsreform in der DDR#b
+normal#Welche Parteien vereinigten sich 1946 zur Sozialistischen Einheitspartei Deutschlands (SED)?#KPD und SPD#KPD und NSDAP#SPD und NSDAP#SPD und PDS#a
+normal#Wer war von 1971 bis 1989 "Chef" in der DDR?#Erich Mielke#Erich Honecker#Walter Ulbricht#Friedrich Engels#b
+normal#Der Diktator Pol Pot war "Bruder Nummer eins" im kommunistischen Regime seines Landes. In welchem Land herrschte er?#Vietnam#China#Kambodscha#Somalia#c
+normal#Der südafrikanische Staat Simbabwe wurde 1980 unabhängig. Wie hieß das Land früher?#Südafrika#Botswana#Rhodesien#Lesotho#c
+normal#Der französische Sonnenkönig Ludwig XIV. herrschte lange Jahre über Frankreich. Wie viele?#42#52#62#72#d
+normal#In welchem Jahr des Zweiten Weltkrieges wurde die Dresdener Frauenkirche zerstört?#1942#1943#1944#1945#d
+normal#John F. Kennedy war der vierte US-Präsident, der ermordet wurde. In welcher Stadt wurde er erschossen?#In Dallas#In Washington#In Austin#In Springfield#a
+normal#In welchem Land steht das älteste Hotel der Welt?#Deutschland#Albanien#Frankreich#Japan#d
+normal#Durch wie viele Staaten führte die Route 66 bis zu ihrer Auflösung im Jahr 1985?#4#8#12#17#b
+normal#Welches der folgenden Gemälde hängt nicht im Louvre?#das Abendmahl (da Vinci)#Der Astronom (Vermeer)#Das Narrenschiff (Bosch)#Mona Lisa (da Vinci)#a
+normal#In welchem Land sind die meisten Sprachen zu Hause?#Deutschland#Papua-Neuguinea#Brasilien#USA#b
+schaetzen#Schätzfrage: Wie lange v. Chr. fanden die ersten Olympischen Spiele statt?#776
+schaetzen#Schätzfrage: Wie viele Purpurschnecken werden für die Herstellung eines Gramms Purpurfarbstoffs benötigt?#10000
+normal#In welchem Jahr wurde in Deutschland das Farbfernsehen eingeführt?#1963#1965#1967#1969#c
+normal#Der Begriff "Plankton" beschreibt im Wasser lebende Organismen, die ...#... sich nicht gegen die Strömung bewegen können.#... nicht größer als 0,9 Millimeter werden.#... eine maximale Lebenserwartung von 3 Tagen haben.#... sich gegen die Strömung bewegen können.#a
+normal#Welches Land pflanzt jährlich die meisten neuen Bäume?#Kanada#Russland#China#Rumänien#c
+normal#Welches Vitamin ist gemeint, wenn von Ascorbinsäure die Rede ist?#Vitamin A#Vitamin B#Vitamin C#Vitamin D#c
+normal#Welches Element hat den zweithöchsten Massenanteil an der kontinentalen Erdkruste?#Lithium#Silizium#Kalium#Sauerstoff#b
+normal#Wie lautet die internationale Bezeichnung für hochgradig strahlenden Abfall?#"atomic burden" (AB)#"nuclear remains" (NR)#"high-level waste" (HLW)#„radiation drop“ (RD)#c
+normal#Wann ereignete sich die Nuklearkatastrophe von Tschernobyl?#1982#1984#1986#1988#c
+sortier#Ordne die Hauptstädte nach ihrer Entfernung zu Berlin aufsteigend.#Madrid#Washington D.C#Minsk#Brasilia#c#a#b#d
+schaetzen#Wie viele Einwohner in Millionen hat Kanada?(Stand Juli 2015)#36
+normal#Wie viele Menschen haben bisher den Mond betreten?#2#8#12#18#c
+normal#Was ist eine Teesorte?#saltpetre#gunpowder#sulphur#bitumen#b
+normal#Wie hoch war der höchste in Deutschland jemals ausgegebene Geldschein?#100 Milliarden RM#1 Billion RM#10 Billionen RM#100 Billionen RM#d
+schaetzen#Wie groß ist der Erddurchmesser in Kilometer im Mittel?#12742
+normal#Wann wurde Augustus Kaiser?#34 v.Chr.#31 v. Chr.#28 v. Chr.#25 v. Chr.#b
+sortier#Ordne diese Erfindungen aufsteigend nach ihrem Erfindungsjahr.#Fernrohr#Buchdruck#Brille#Fotographie#c#b#a#d
+normal#Mit welchem Tier verglich Arthur Schopenhauer den Menschen?#Klapperschlange#Stachelschwein#Nasenbär#Vogelspinne#b
+normal#Von wem stammt der Satz: "Ich denke, also bin ich"?#Von George Berkeley#Von Martin Heidegger#Von René Descartes#Von Immanuel Kant#c
+normal#Wie viele Glocken hat der Schiefe Turm von Pisa?#keine#drei#sieben#acht#c
+normal#Warum wurde die Chinesische Mauer gebaut?#als Schutz des chinesischen Kaiserreichs vor Reitervölkern#aus Angst vor Krieg zwischen der Han-Dynastie und der Wei-Dynastie#als Resultat einer großen Fluchtbewegung in China#um eine gute Infrastruktur zu ermöglichen#a
+normal#Wer steht in den Torhäusern des Brandenburger Tors?#Athene & Apollo#Mars & Minerva#Viktor & Viktoria#Peisandros & Penelope #b
+schaetzen#Aus wie vielen Steinblöcken wurde die Cheops-Pyramide gebaut?#3000000
+schaetzen#Schätzfrage: Wie lang ist der Nil in Kilometer?#6671
+normal#Welchen Umfang hat die Erde am Äquator?#ca. 4.405 km#ca. 14.845 km#ca. 40.075 km#ca. 48.445 km#c
+schaetzen#Schätzfrage: Wie viele Länder durchquert der Äquator?#11
+normal#Welche Stadt ist die brückenreichste Stadt Europas?#Amsterdam#Hamburg#London#Venedig#b
