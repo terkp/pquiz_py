@@ -52,19 +52,12 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(FragenHandler.FragenHandler.currentQuestion)
 
     def do_POST(self):
-        logging.error(self.headers)
-        form = cgi.FieldStorage(
-            fp=self.rfile,
-            headers=self.headers,
-            environ={'REQUEST_METHOD':'POST',
-                     'CONTENT_TYPE':self.headers['Content-Type'],
-                     })
-
-        for item in form.list:
-            logging.error(item)
-        http.server.SimpleHTTPRequestHandler.do_GET(self)
-
-        self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
+        print(post_data)
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
 
     #def do_Post(self):
         #ctype, pdict = cgi.parse_header(self.headers.get('content-type'))
@@ -88,11 +81,12 @@ class Server(BaseHTTPRequestHandler):
 
 def test(Buff):
     #Buff.Bufin(["4","gruppe1",["b"],])
-    time.sleep(10)
+    time.sleep(20)
     print("10")
     time.sleep(5)
     print("ready")
-    Buff.Bufin(["4","gruppe1",["b"],])
+    Buff.Bufin(["4","gruppe1",["d","b","c","a"],])
+    Buff.Bufin(["4","gru2",["d","b","c","a"],])
     #Bufinn.Bufin(["4","gruppe1",["b"],])
 
 def webserverdef (Buff):
@@ -121,5 +115,5 @@ if __name__ == "__main__":
     start_new_thread(Anzeige.App,(Buff2,))
     start_new_thread(Anwendung.Anwendung,(Buff,Ausgabe,Buff2))
     start_new_thread(webserverdef,(Buff,))
-    start_new_thread(test,(Buff,))
+    #start_new_thread(test,(Buff,))
     root.mainloop()
