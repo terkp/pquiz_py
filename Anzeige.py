@@ -22,7 +22,7 @@ class App:
 
     def main(self,buff2):
         global running
-        # Initialisieren aller Pygame-Module und 
+        # Initialisieren aller Pygame-Module und
         # Fenster erstellen (wir bekommen eine Surface, die den Bildschirm repräsentiert).
         pygame.init()
         global screen
@@ -32,7 +32,7 @@ class App:
         Rahmen = pygame.image.load("ober.gif")
         background = pygame.transform.scale(background,(1920,1080))
         backgroundRect = pygame.Rect(0,0,1920,1080)#screen.get_width,screen.get_height)
-        #size = (width, height) = background.get_size() 
+        #size = (width, height) = background.get_size()
         #Returns size of image as (x, y) so game screen will be as big as background
 
         # Titel des Fensters setzen, Mauszeiger nicht verstecken und Tastendrücke wiederholt senden.
@@ -42,13 +42,13 @@ class App:
 
         # Clock Objekt erstellen, das wir benötigen, um die Framerate zu begrenzen.
         clock = pygame.time.Clock()
-        
+
         # initialize font; must be called after 'pygame.init()' to avoid 'Font not Initialized' error
         myfont = pygame.font.SysFont("Cambria", 40)
 
         button = pygame.Rect(500,700,300,100)
         button2 = pygame.Rect(900,700,300,100)
-        
+
         # Die Schleife, und damit unser Spiel, läuft solange running == True.
         running = True
         while running:
@@ -56,7 +56,7 @@ class App:
             # Framerate auf 30 Frames pro Sekunde beschränken.
             # Pygame wartet, falls das Programm schneller läuft.
             clock.tick(30)
-            
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running= False
@@ -105,7 +105,7 @@ class App:
                                         losu = losu.replace("4","D")
                                         label = myfont.render( losu, 1, (0,0,0))
                                         screen.blit(label, (600+j*20,50+ 50*i))
-                                
+
                     else:
                         label = myfont.render(buff2.getGruppen()[i][0] , 1, (80,80,80))
                         screen.blit(label, (50,50+ 50*i))
@@ -148,8 +148,8 @@ class App:
                                     screen.blit(myfont.render('    '+Frage[2][i][Umbruch:] , 1, (0,0,0)), (300, 585+int(i/2)*130))
                                 else:
                                     screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i][:Umbruch] , 1, (0,0,0)), (1100, 550+int(i/2)*130))
-                                    screen.blit(myfont.render('    '+Frage[2][i][Umbruch:] , 1, (0,0,0)), (1100, 585+int(i/2)*130)) 
-                        
+                                    screen.blit(myfont.render('    '+Frage[2][i][Umbruch:] , 1, (0,0,0)), (1100, 585+int(i/2)*130))
+
                         #screen.blit(myfont.render('B: '+Frage[2][1] , 1, (0,0,0)), (1200, 500))
                         #screen.blit(myfont.render('C: '+Frage[2][2] , 1, (0,0,0)), (300, 600))
                         #screen.blit(myfont.render('D: '+Frage[2][3] , 1, (0,0,0)), (1200, 600))
@@ -172,4 +172,3 @@ class App:
             screen.blit
             pygame.display.flip()
         pygame.quit()
-

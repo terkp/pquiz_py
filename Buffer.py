@@ -1,18 +1,29 @@
 from _thread import allocate_lock
 class Buffer():
     def __init__(self):
+        print("only once")
         self.__lock = allocate_lock()
         self.__Liste_Clients = []
         self.__buffer_In = list()
         self.__buffer_Out = list()
     def BufINget(self):
         self.__lock.acquire()
+        print(self.__buffer_In)
         if len(self.__buffer_In)==0:
             result = None
         else:
             result = self.__buffer_In.pop(0)
         self.__lock.release()
+        if result != None:
+            print(result)
         return result
+    def Bufin(self,data):
+        print("hello")
+        print(data)
+        self.__lock.acquire()
+        self.__buffer_In.append(data)
+        self.__lock.release()
+        print(self.__buffer_In)
     def BufINset(self,Client,Bufin,Regler=-1):
         self.__lock.acquire()
         if Regler==0:

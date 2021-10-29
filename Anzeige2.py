@@ -1,20 +1,20 @@
 from tkinter import *
-import lesen
+import fragenEinlesen
 from _thread import allocate_lock
-from tkinter.filedialog import askopenfilename      
+from tkinter.filedialog import askopenfilename
 
 
-    
+
 
 class App:
     def __init__(self,master):
         self.__lock = allocate_lock()
-        self.__nästeFstart = False
+        self.__nasteFstart = False
         self.__weiter=True
         self.__Loan=False
         self.__Punkteanzeigen=False
         self.__Aenderungflag=False
-        self.__Datein=lesen.lesen()
+        self.__Datein=fragenEinlesen.lesen()
         self.__Liste_Fragen=[]
         self.__Gruppen=[]
         self.Frage=-1
@@ -130,7 +130,7 @@ class App:
             self.__Aenderungflag=False
         self.__lock.release()
     def Gruppenae(self):
-        if self.__Aenderungflag:          
+        if self.__Aenderungflag:
             self.__Aenderungflag=False
             return self.__Gruppenaenderung
         else:
@@ -143,11 +143,11 @@ class App:
         except:
             self.__Aenderungflag=False
         self.__lock.release()
-        
+
     def Guppenakk(self):
         self.w.delete("all")
         j=0
-        
+
         #self.w.create_text(10,10+j*30,text=str(j)+': ')
         for Typ in self.__Gruppen:
             j=j+1
@@ -161,14 +161,14 @@ class App:
         self.__Gruppen=gruppen
     def callback(self):
         name = askopenfilename()
-        self.__Liste_Fragen = self.__Datein.Fragen_einlesen(name)
+        self.__Liste_Fragen = self.__Datein.fragen_einlesen(name)
     def setFrageT(self):
         self.__lock.acquire()
-        self.__nästeFstart = True
+        self.__nasteFstart = True
         self.__lock.release()
     def setFrageF(self):
         self.__lock.acquire()
-        self.__nästeFstart = False
+        self.__nasteFstart = False
         self.__lock.release()
     def weiterT(self):
         self.__lock.acquire()
@@ -195,7 +195,7 @@ class App:
         self.__Punkteanzeigen = False
         self.__lock.release()
     def getFrage(self):
-        return self.__nästeFstart
+        return self.__nasteFstart
     def getWeiter(self):
         return self.__weiter
     def getLoAn(self):

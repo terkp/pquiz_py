@@ -1,9 +1,12 @@
 import Buffer
+import FragenHandler
+import fragenEinlesen
 from Spieler import Spieler
 from time import*
+import time
 class Anwendung():
     def __init__(self,Buff,Ausgabe,Buff2):
-        
+
         self.__ListeSpieler =[]
         #self.__ListeFragen = [["normal", "wie heißt das Quiz?", ["super", "PQuiz", "TQuiz", "toll"],1],
         #                      ["normal", "wie heißt das Quiz23?", ["super", "PQuiz", "TQuiz", "toll"],3],
@@ -16,52 +19,75 @@ class Anwendung():
         self.__neueFrage2 = True
         Ausgabe.ak_Frage.insert(0,"0")
         while True:
+            time.sleep(1)
             VonClient = Buff.BufINget()
+            #print(VonClient)
             if VonClient!=None:
+                print("mh")
                 ClientNvor = True
+                if ClientNvor: #Client kann nur einer Gruppe zugeordnet werden, wenn er nicht schon einer Gruppe zugewiedsen ist
+                    GruppeNvorh = True
+                    for Typ in self.__ListeSpieler:
+                        if VonClient[1] == Typ.Gruppe:#Prüft ob die gewünschte Gruppe existiert
+                            GruppeNvorh = False
+                            if Typ.Aktiv == False:
+                                Typ.Aktiv = True
+                                #Typ.Server = VonClient[0]
+                                    #if (self.__aFrag!= -1 and Typ.aktuelleAntwort == 0): #Wenn er mitten in einer Frage abschmiert
+                                    #    ZwisString = ""
+                                    #    if self.__ListeFragen[self.__aFrag][0] == "normal":
+                                    #        ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
+                                    #    if self.__ListeFragen[self.__aFrag][0] == "sortier":
+                                    #        ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
+                                    #    Buff.BufOUTset(Typ.Server,"server:#" + self.__ListeFragen[self.__aFrag][0] + "#" +self.__ListeFragen[self.__aFrag][1] + "#" + ZwisString)
+                                self.Gruppenakk(Buff2,Ausgabe)
+                    if GruppeNvorh: #Nur neue Gruppe erstellen falls sie noch nicht existiert
+                        Akksp = Spieler(VonClient[1])
+                        self.__ListeSpieler.append(Akksp)
+                        self.Gruppenakk(Buff2,Ausgabe)
+                        print("Gruppe hinzugefügt")
                 for Typ in self.__ListeSpieler:
-                    if Typ.Server == VonClient[0]:
+                    if Typ.Gruppe == VonClient[1]:
                         ClientNvor == False
-                        if VonClient[1] == "Verbindung unterbrochen":
-                            Typ.Aktiv = False
-                            self.Gruppenakk(Buff2,Ausgabe)
+                        #if VonClient[1] == "Verbindung unterbrochen":
+                        #    Typ.Aktiv = False
+                        #    self.Gruppenakk(Buff2,Ausgabe)
                         #########
                         #Antwort von client:# antwort#(bei normal 1 = a usw., b)
                         print("Gruppe "+ Typ.Gruppe + " sendet "+VonClient[1])
-                        Typ.Endzeit = clock()
+                        Typ.Endzeit = time.perf_counter()
                         Typ.Zeit = Typ.Endzeit - t1
                         try:
-                            if VonClient[1][0:8]=="antwort:":
-                                if VonClient[1][8]==0:
-                                    pass
-                                elif self.__ListeFragen[self.__aFrag][0] == "sortier":
-                                    Typ.aktuelleAntwort=[0,0,0,0]
-                                    for i in range(4):
-                                        if VonClient[1][8+i] == "a":
-                                            Typ.aktuelleAntwort[i]=1
-                                        elif VonClient[1][8+i] == "b":
-                                            Typ.aktuelleAntwort[i]=2
-                                        elif VonClient[1][8+i] == "c":
-                                            Typ.aktuelleAntwort[i]=3
-                                        elif VonClient[1][8+i] == "d":
-                                            Typ.aktuelleAntwort[i]=4
-                                        self.Gruppenakk(Buff2,Ausgabe)
-                                else:
-                                    if VonClient[1][8] == "a":
-                                        Typ.aktuelleAntwort=1
-                                    elif VonClient[1][8] == "b":
-                                        Typ.aktuelleAntwort=2
-                                    elif VonClient[1][8] == "c":
-                                        Typ.aktuelleAntwort=3
-                                    elif VonClient[1][8] == "d":
-                                        Typ.aktuelleAntwort=4
-                                    else:
-                                        try:
-                                            Typ.aktuelleAntwort=int(VonClient[1][8:])
-                                            self.Gruppenakk(Buff2,Ausgabe)
-                                        except:
-                                            pass
+                            if VonClient[2][0]==0:
+                                pass
+                            elif self.__ListeFragen[self.__aFrag][0] == "sortier":
+                                Typ.aktuelleAntwort=[0,0,0,0]
+                                for i in range(4):
+                                    if VonClient[2][0+i] == "a":
+                                        Typ.aktuelleAntwort[i]=1
+                                    elif VonClient[2][0+i] == "b":
+                                        Typ.aktuelleAntwort[i]=2
+                                    elif VonClient[2][0+i] == "c":
+                                        Typ.aktuelleAntwort[i]=3
+                                    elif VonClient[2][0+i] == "d":
+                                        Typ.aktuelleAntwort[i]=4
                                     self.Gruppenakk(Buff2,Ausgabe)
+                            else:
+                                if VonClient[2][0] == "a":
+                                    Typ.aktuelleAntwort=1
+                                elif VonClient[2][0] == "b":
+                                    Typ.aktuelleAntwort=2
+                                elif VonClient[2][0] == "c":
+                                    Typ.aktuelleAntwort=3
+                                elif VonClient[2][0] == "d":
+                                    Typ.aktuelleAntwort=4
+                                else:
+                                    try:
+                                        Typ.aktuelleAntwort=int(VonClient[2][0])
+                                        self.Gruppenakk(Buff2,Ausgabe)
+                                    except:
+                                        pass
+                                self.Gruppenakk(Buff2,Ausgabe)
                             self.Gruppenakk(Buff2,Ausgabe)
                         except:
                             pass
@@ -70,27 +96,7 @@ class Anwendung():
                         #else:
                         #    Buff.BufOUTset(VonClient[0],"Gruppe "+Typ.Gruppe+" sendet " + VonClient[1])
                         ########
-                if ClientNvor: #Client kann nur einer Gruppe zugeordnet werden, wenn er nicht schon einer Gruppe zugewiedsen ist
-                    GruppeNvorh = True
-                    if VonClient[1][0:7]=="Gruppe:":
-                        for Typ in self.__ListeSpieler:
-                            if VonClient[1][7:] == Typ.Gruppe:#Prüft ob die gewünschte Gruppe existiert
-                                GruppeNvorh = False
-                                if Typ.Aktiv == False:
-                                    Typ.Aktiv = True
-                                    Typ.Server = VonClient[0]
-                                    if (self.__aFrag!= -1 and Typ.aktuelleAntwort == 0): #Wenn er mitten in einer Frage abschmiert
-                                        ZwisString = ""
-                                        if self.__ListeFragen[self.__aFrag][0] == "normal":
-                                            ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
-                                        if self.__ListeFragen[self.__aFrag][0] == "sortier":
-                                            ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
-                                        Buff.BufOUTset(Typ.Server,"server:#" + self.__ListeFragen[self.__aFrag][0] + "#" +self.__ListeFragen[self.__aFrag][1] + "#" + ZwisString)
-                                    self.Gruppenakk(Buff2,Ausgabe)
-                        if GruppeNvorh: #Nur neue Gruppe erstellen falls sie noch nicht existiert
-                            Akksp = Spieler(VonClient[1][7:],VonClient[0])
-                            self.__ListeSpieler.append(Akksp)
-                            self.Gruppenakk(Buff2,Ausgabe)
+
             """
                 Änderung übernehmen
             """
@@ -111,35 +117,42 @@ class Anwendung():
                             self.__ListeSpieler[self.__Gruppenaenderung[0]].Aktiv = True
                 except:
                     pass
-                self.Gruppenakk(Buff2,Ausgabe)                    
-                    
+                self.Gruppenakk(Buff2,Ausgabe)
+
             """
                 In diesem Abschnitt wird jeweils eine neue Frage gesendet
             """
-                            
+
             if Ausgabe.getFrage():
+                print("1")
                 Ausgabe.setFrageF()
                 if self.__neueFrage:
+                    print("2")
                     self.__ListeFragen = Ausgabe.holeFragen()
                     if self.__ListeFragen != []:
+                        print("3")
                         self.Gruppenakk(Buff2,Ausgabe)
                         Buff2.set__LoesungAnzeigen(False)
                         if Ausgabe.neFrag:
                             Ausgabe.neFrag=False
                             self.__aFrag=Ausgabe.Frage-1
                         self.__aFrag = self.__aFrag+1
+                        #leseEingabe = fragenEinlesen.lesen()
+                        #liste_Fragen = leseEingabe.fragen_einlesen(name)
+                        fragenHandler = FragenHandler.FragenHandler(self.__ListeFragen)
+                        fragenHandler.readMessage(self.__ListeFragen[self.__aFrag])
                         Ausgabe.ak_Frage.delete(0,'end')
                         Ausgabe.ak_Frage.insert(0,str(self.__aFrag+1))
-                        ZwisString = ""
+                        #ZwisString = ""
                         try:
-                            if self.__ListeFragen[self.__aFrag][0] == "normal":
-                                ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
-                            if self.__ListeFragen[self.__aFrag][0] == "sortier":
-                                ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
-                            Buff.BufOUTset(0,"server:#" + self.__ListeFragen[self.__aFrag][0] + "#" +self.__ListeFragen[self.__aFrag][1] + "#" + ZwisString)
+                            #if self.__ListeFragen[self.__aFrag][0] == "normal":
+                            #    ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
+                            #if self.__ListeFragen[self.__aFrag][0] == "sortier":
+                            #    ZwisString = self.__ListeFragen[self.__aFrag][2][0]+"#" + self.__ListeFragen[self.__aFrag][2][1]+"#" + self.__ListeFragen[self.__aFrag][2][2]+"#" + self.__ListeFragen[self.__aFrag][2][3]
+                            #Buff.BufOUTset(0,"server:#" + self.__ListeFragen[self.__aFrag][0] + "#" +self.__ListeFragen[self.__aFrag][1] + "#" + ZwisString)
                             self.__neueFrage = False
                             Buff2.setFrage(self.__ListeFragen[self.__aFrag])
-                            t1 = clock()
+                            t1 = time.perf_counter()
                         except:
                             pass
 
@@ -147,7 +160,7 @@ class Anwendung():
                  In diesem Abschnitt wird die Lösung angezeigt
             """
             if Ausgabe.getLoAn():
-                
+
                 Ausgabe.LoAnF()
                 self.__neueFrage2 = True
                 for Typ in self.__ListeSpieler: #Wenn alle Spiler die Frage beantwortet haben bleibt neue Fragen Ture
@@ -155,10 +168,10 @@ class Anwendung():
                        self.__neueFrage2 = False
                 if (self.__neueFrage2 or self.__neueFrage):
                     Buff2.set__LoesungAnzeigen(True)
-                    
+
             """
                  In diesem Abschnitt werden dei Anworten ausgewertet wenn alle eine Anwort abgegeben haben
-            """    
+            """
             if Ausgabe.getWeiter():
                 Ausgabe.weiterF()
                 self.__neueFrage = True
@@ -179,8 +192,8 @@ class Anwendung():
                     for Typ in self.__ListeSpieler:
                         try:
                             for i in len(self.__ListeSpieler):
-                                if Typ.Zeit == zeitliste[i]
-                                Typ.position = i
+                                if Typ.Zeit == zeitliste[i]:
+                                    Typ.position = i
                         except:
                             pass
                         if len(self.__ListeFragen)>0:
@@ -202,7 +215,7 @@ class Anwendung():
                             elif self.__ListeFragen[self.__aFrag][0] == "schaetzen":
                                 Sieger=2
                                 for Typ2 in self.__ListeSpieler: #Ermittelt den Sieger wer am nächsten zur Lösung gelegen ist
-                                    if Typ.Gruppe != Typ2.Gruppe: 
+                                    if Typ.Gruppe != Typ2.Gruppe:
                                         if abs(Typ.aktuelleAntwort-self.__ListeFragen[self.__aFrag][2])>abs(Typ2.aktuelleAntwort-self.__ListeFragen[self.__aFrag][2]):
                                             Sieger=Sieger-1
                                 if Sieger==2:
@@ -233,10 +246,10 @@ class Anwendung():
                     self.Gruppenakk(Buff2,Ausgabe,True)
                     for Typ in self.__ListeSpieler:
                         Typ.aktuelleAntwort = 0
-                        
+
             Buff2.setPunkteanzeigen(Ausgabe.getPunkteanzeigen())
-            
-                        
+
+
     def Gruppenakk(self,Buff2,Ausgabe,flag=False):
         Gruppen=[]
         if flag==False:
@@ -251,8 +264,8 @@ class Anwendung():
         for Typ in self.__ListeSpieler:
             Gruppen.append([Typ.Gruppe,Typ.aktuelleAntwort,Typ.Punkte,Typ.Aktiv])
         Ausgabe.setGruppen(Gruppen)
-        
-                
+
+
 
 
                 #if b[1]=="Hallo":
@@ -260,13 +273,11 @@ class Anwendung():
                 #else:
                 #    Buff.BufOUTset(b[0],"Anwdung sendet " + b[1])
 
-        """while True:
-            b = Buff.BufINget()
-            if b!=None:
-                print(str(b[0]),b[1])
-                if b[1]=="Hallo":
-                    Buff.BufOUTset(0,"Anwedung "+str(b[0])+" sendet " + b[1])
-                else:
-                    Buff.BufOUTset(b[0],"Anwdung sendet " + b[1])"""
-                
-
+        #"""while True:
+        #    b = Buff.BufINget()
+        #    if b!=None:
+        #        print(str(b[0]),b[1])
+        #        if b[1]=="Hallo":
+        #            Buff.BufOUTset(0,"Anwedung "+str(b[0])+" sendet " + b[1])
+        #        else:
+        #            Buff.BufOUTset(b[0],"Anwdung sendet " + b[1])"""
