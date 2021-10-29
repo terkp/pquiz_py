@@ -19,7 +19,7 @@ class Anwendung():
         self.__neueFrage2 = True
         Ausgabe.ak_Frage.insert(0,"0")
         while True:
-            time.sleep(1)
+            #time.sleep(1)
             VonClient = Buff.BufINget()
             #print(VonClient)
             if VonClient!=None:
@@ -83,7 +83,8 @@ class Anwendung():
                                     Typ.aktuelleAntwort=4
                                 else:
                                     try:
-                                        Typ.aktuelleAntwort=int(VonClient[2][0])
+                                        Typ.aktuelleAntwort=int(VonClient[2][0:])
+                                        print(int(VonClient[2][0:]))
                                         self.Gruppenakk(Buff2,Ausgabe)
                                     except:
                                         pass

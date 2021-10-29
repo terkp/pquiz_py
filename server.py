@@ -18,16 +18,16 @@ from http import HTTPStatus
 import json
 import time
 import logging
+import json
 
 
 
 hostName = "0.0.0.0"
 serverPort = 8080
-
+Buff=Buffer.Buffer()
 
 
 class Server(BaseHTTPRequestHandler):
-
     #def _set_response(self):
     #    self.send_response(200)
     #    self.send_header('Content-type', 'text/html')
@@ -58,6 +58,9 @@ class Server(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
+        new_data=json.loads(post_data)
+        print(new_data)
+        Buff.Bufin(new_data)
 
     #def do_Post(self):
         #ctype, pdict = cgi.parse_header(self.headers.get('content-type'))
@@ -108,7 +111,6 @@ if __name__ == "__main__":
     liste_Fragen = leseEingabe.fragen_einlesen(name)
     fragenHandler = FragenHandler.FragenHandler(liste_Fragen)
     fragenHandler.readMessage(liste_Fragen[0])
-    Buff = Buffer.Buffer()
     Buff2 = Buffer2.Buffer2()
     root = Tk()
     Ausgabe = Anzeige2.App(root)
