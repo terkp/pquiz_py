@@ -77,25 +77,25 @@ class App:
                 for i in range(len(buff2.getGruppen())):
                     if buff2.getGruppen()[i][3]: #Wenn der Spieler Aktiv ist
                         label = myfont.render(buff2.getGruppen()[i][0].rstrip() , 1, (0,0,0))
-                        screen.blit(label, (500,500+ 50*i))
+                        screen.blit(label, (500,300+ 50*i))
                     else:
                         label = myfont.render(buff2.getGruppen()[i][0] , 1, (80,80,80))
-                        screen.blit(label, (500,500+ 50*i))
+                        screen.blit(label, (500,300+ 50*i))
                     label = myfont.render(str(buff2.getGruppen()[i][2]) , 1, (0,0,0))
-                    screen.blit(label, (1100,500+ 50*i))
+                    screen.blit(label, (1100,300+ 50*i))
             else:
                 for i in range(len(buff2.getGruppen())):
                     if buff2.getGruppen()[i][3]: #Wenn der Spieler Aktiv ist
                         label = myfont.render(buff2.getGruppen()[i][0].rstrip() , 1, (0,0,0))
-                        screen.blit(label, (100,65+ 50*i))
+                        screen.blit(label, (100,25+ 50*i))
                         if buff2.getGruppen()[i][1] != 0: #Wenn eine Anwort gegeben ist
                             if len(Frage)>1:
                                 if Frage[0]=="normal":
                                     label = myfont.render(chr(buff2.getGruppen()[i][1]+64) , 1, (0,0,0))
-                                    screen.blit(label, (400,65+ 50*i))
+                                    screen.blit(label, (400,25+ 50*i))
                                 if Frage[0]=="schaetzen":
                                     label = myfont.render(str(buff2.getGruppen()[i][1]) , 1, (0,0,0))
-                                    screen.blit(label, (400,65+ 50*i))
+                                    screen.blit(label, (400,25+ 50*i))
                                 if Frage[0]=="sortier":
                                     for j in range(4):
                                         losu = str(buff2.getGruppen()[i][1][j])
@@ -104,7 +104,7 @@ class App:
                                         losu = losu.replace("3","C")
                                         losu = losu.replace("4","D")
                                         label = myfont.render( losu, 1, (0,0,0))
-                                        screen.blit(label, (400+j*20,65+ 50*i))
+                                        screen.blit(label, (400+j*20,50+ 50*i))
 
                     else:
                         label = myfont.render(buff2.getGruppen()[i][0] , 1, (80,80,80))
