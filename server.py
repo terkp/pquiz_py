@@ -48,7 +48,7 @@ class Server(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "application/json")
         self.end_headers()
-        #print(FragenHandler.FragenHandler.currentQuestion)
+        print(FragenHandler.FragenHandler.currentQuestion)
         self.wfile.write(FragenHandler.FragenHandler.currentQuestion)
 
     def do_POST(self):
@@ -83,9 +83,10 @@ class Server(BaseHTTPRequestHandler):
     #    self.end_headers()
 
 def test(Buff):
+    print("25")
     #Buff.Bufin(["4","gruppe1",["b"],])
     time.sleep(20)
-    print("10")
+    print("5")
     time.sleep(5)
     print("ready")
     Buff.Bufin(["4","gruppe1",["d","b","c","a"],])
@@ -107,6 +108,7 @@ def webserverdef (Buff):
 
 if __name__ == "__main__":
     name = askopenfilename()
+    print("running")
     leseEingabe = fragenEinlesen.lesen()
     liste_Fragen = leseEingabe.fragen_einlesen(name)
     fragenHandler = FragenHandler.FragenHandler(liste_Fragen)
@@ -117,5 +119,5 @@ if __name__ == "__main__":
     start_new_thread(Anzeige.App,(Buff2,))
     start_new_thread(Anwendung.Anwendung,(Buff,Ausgabe,Buff2))
     start_new_thread(webserverdef,(Buff,))
-    #start_new_thread(test,(Buff,))
+    start_new_thread(test,(Buff,))
     root.mainloop()
