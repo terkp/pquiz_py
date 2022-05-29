@@ -56,7 +56,11 @@ class Anwendung():
                         #Antwort von client:# antwort#(bei normal 1 = a usw., b)
                         print("Gruppe "+ Typ.Gruppe + " sendet "+VonClient[1])
                         Typ.Endzeit = time.perf_counter()
-                        Typ.Zeit = Typ.Endzeit - t1
+                        try:
+                            Typ.Zeit = Typ.Endzeit - t1
+                        except:
+                            t1 = 0
+                            Typ.Zeit = Typ.Endzeit - t1
                         try:
                             if VonClient[2][0]==0:
                                 pass

@@ -74,101 +74,121 @@ class App:
             screen.fill((255,255,255))
             screen.blit(background, backgroundRect)
             if buff2.getPunkteanzeigen():
-                for i in range(len(buff2.getGruppen())):
-                    if buff2.getGruppen()[i][3]: #Wenn der Spieler Aktiv ist
-                        label = myfont.render(buff2.getGruppen()[i][0].rstrip() , 1, (0,0,0))
-                        screen.blit(label, (500,300+ 50*i))
-                    else:
-                        label = myfont.render(buff2.getGruppen()[i][0] , 1, (80,80,80))
-                        screen.blit(label, (500,300+ 50*i))
-                    label = myfont.render(str(buff2.getGruppen()[i][2]) , 1, (0,0,0))
-                    screen.blit(label, (1100,300+ 50*i))
+                try:
+                    for i in range(len(buff2.getGruppen())):
+                        if buff2.getGruppen()[i][3]: #Wenn der Spieler Aktiv ist
+                            label = myfont.render(buff2.getGruppen()[i][0].rstrip() , 1, (0,0,0))
+                            screen.blit(label, (500,300+ 50*i))
+                        else:
+                            label = myfont.render(buff2.getGruppen()[i][0] , 1, (80,80,80))
+                            screen.blit(label, (500,300+ 50*i))
+                        label = myfont.render(str(buff2.getGruppen()[i][2]) , 1, (0,0,0))
+                        screen.blit(label, (1100,300+ 50*i))
+                except:
+                    print("error punkte anzeige")
             else:
-                for i in range(len(buff2.getGruppen())):
-                    if buff2.getGruppen()[i][3]: #Wenn der Spieler Aktiv ist
-                        label = myfont.render(buff2.getGruppen()[i][0].rstrip() , 1, (0,0,0))
-                        screen.blit(label, (100,25+ 50*i))
-                        if buff2.getGruppen()[i][1] != 0: #Wenn eine Anwort gegeben ist
-                            if len(Frage)>1:
-                                if Frage[0]=="normal":
-                                    label = myfont.render(chr(buff2.getGruppen()[i][1]+64) , 1, (0,0,0))
-                                    screen.blit(label, (400,25+ 50*i))
-                                if Frage[0]=="schaetzen":
-                                    label = myfont.render(str(buff2.getGruppen()[i][1]) , 1, (0,0,0))
-                                    screen.blit(label, (400,25+ 50*i))
-                                if Frage[0]=="sortier":
-                                    for j in range(4):
-                                        losu = str(buff2.getGruppen()[i][1][j])
-                                        losu = losu.replace("1","A")
-                                        losu = losu.replace("2","B")
-                                        losu = losu.replace("3","C")
-                                        losu = losu.replace("4","D")
-                                        label = myfont.render( losu, 1, (0,0,0))
-                                        screen.blit(label, (400+j*20,50+ 50*i))
-
-                    else:
-                        label = myfont.render(buff2.getGruppen()[i][0] , 1, (80,80,80))
-                        screen.blit(label, (50,65+ 50*i))
-                    #label = myfont.render(str(buff2.getGruppen()[i][2]) , 1, (0,0,0))
-                    #screen.blit(label, (340,50+ 50*i))
+                try:
+                    for i in range(len(buff2.getGruppen())):
+                        if buff2.getGruppen()[i][3]: #Wenn der Spieler Aktiv ist
+                            label = myfont.render(buff2.getGruppen()[i][0].rstrip() , 1, (0,0,0))
+                            screen.blit(label, (100,25+ 50*i))
+                            if buff2.getGruppen()[i][1] != 0: #Wenn eine Anwort gegeben ist
+                                if len(Frage)>1:
+                                    if Frage[0]=="normal":
+                                        try:
+                                            label = myfont.render(chr(buff2.getGruppen()[i][1]+64) , 1, (0,0,0))
+                                            screen.blit(label, (400,25+ 50*i))
+                                        except:
+                                            print("error normal antwort anzeige")
+                                            print(buff2.getGruppen()[i])
+                                    if Frage[0]=="schaetzen":
+                                        try:
+                                            label = myfont.render(str(buff2.getGruppen()[i][1]) , 1, (0,0,0))
+                                            screen.blit(label, (400,25+ 50*i))
+                                        except:
+                                            print("error schaetzen antwort anzeige")
+                                            print(buff2.getGruppen()[i])
+                                    if Frage[0]=="sortier":
+                                        try:
+                                            for j in range(4):
+                                                losu = str(buff2.getGruppen()[i][1][j])
+                                                losu = losu.replace("1","A")
+                                                losu = losu.replace("2","B")
+                                                losu = losu.replace("3","C")
+                                                losu = losu.replace("4","D")
+                                                label = myfont.render( losu, 1, (0,0,0))
+                                                screen.blit(label, (400+j*20,50+ 50*i))
+                                        except:
+                                            print("error sortier antwort anzeige")
+                                            print(buff2.getGruppen()[i])
+                        else:
+                            label = myfont.render(buff2.getGruppen()[i][0] , 1, (80,80,80))
+                            screen.blit(label, (50,65+ 50*i))
+                        #label = myfont.render(str(buff2.getGruppen()[i][2]) , 1, (0,0,0))
+                        #screen.blit(label, (340,50+ 50*i))
+                except:
+                    print("error gruppenantwort anzeige")
                 if len(Frage)>1:
-                    screen.blit(Rahmen,(200,320))
-                    if len(Frage[1])<45:
-                        label2 = myfont.render(Frage[1] , 1, (0,0,0))
-                        screen.blit(label2, (300, 380))
-                    else:
-                        Umbruch = Frage[1].find(" ",35)
-                        label2 = myfont.render(Frage[1][:Umbruch] , 1, (0,0,0))
-                        screen.blit(label2, (300, 350))
-                        label3 = myfont.render(Frage[1][Umbruch:] , 1, (0,0,0))
-                        screen.blit(label3, (300, 410))
-                    if Frage[0]=="normal":
-                        lo = int(Frage[3])-1
-                        losung = Frage[2][lo]
-                        if buff2.get__LoesungAnzeigen():
-                            losu = str(Frage[3])
-                            losu = losu.replace("1","A")
-                            losu = losu.replace("2","B")
-                            losu = losu.replace("3","C")
-                            losu = losu.replace("4","D")
-                            if len(losung)<40:
-                                screen.blit(myfont.render(losu+': '+losung , 1, (0,0,0)), (550, 615))
-                            else:
-                                screen.blit(myfont.render(losu, 1, (0,0,0)), (550, 615))
-                        for i in range(4):
-                            if len(Frage[2][i])<40:
-                                if (i==0 or i==2):
-                                    screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i] , 1, (0,0,0)), (100, 550+int(i/2)*130))
-                                else:
-                                    screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i] , 1, (0,0,0)), (900, 550+int(i/2)*130))
-                            else:
-                                Umbruch = Frage[2][i].find(" ",25)
-                                if (i==0 or i==2):
-                                    screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i][:Umbruch] , 1, (0,0,0)), (100, 550+int(i/2)*130))
-                                    screen.blit(myfont.render('    '+Frage[2][i][Umbruch:] , 1, (0,0,0)), (100, 585+int(i/2)*130))
-                                else:
-                                    screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i][:Umbruch] , 1, (0,0,0)), (1050, 550+int(i/2)*130))
-                                    screen.blit(myfont.render('    '+Frage[2][i][Umbruch:] , 1, (0,0,0)), (900, 585+int(i/2)*130))
-
-                        #screen.blit(myfont.render('B: '+Frage[2][1] , 1, (0,0,0)), (1200, 500))
-                        #screen.blit(myfont.render('C: '+Frage[2][2] , 1, (0,0,0)), (300, 600))
-                        #screen.blit(myfont.render('D: '+Frage[2][3] , 1, (0,0,0)), (1200, 600))
-                    if Frage[0]=="sortier":
-                        if buff2.get__LoesungAnzeigen():
-                            for i in range(4):
-                                losu = str(Frage[3][i])
+                    try:
+                        screen.blit(Rahmen,(200,320))
+                        if len(Frage[1])<45:
+                            label2 = myfont.render(Frage[1] , 1, (0,0,0))
+                            screen.blit(label2, (300, 380))
+                        else:
+                            Umbruch = Frage[1].find(" ",35)
+                            label2 = myfont.render(Frage[1][:Umbruch] , 1, (0,0,0))
+                            screen.blit(label2, (300, 350))
+                            label3 = myfont.render(Frage[1][Umbruch:] , 1, (0,0,0))
+                            screen.blit(label3, (300, 410))
+                        if Frage[0]=="normal":
+                            lo = int(Frage[3])-1
+                            losung = Frage[2][lo]
+                            if buff2.get__LoesungAnzeigen():
+                                losu = str(Frage[3])
                                 losu = losu.replace("1","A")
                                 losu = losu.replace("2","B")
                                 losu = losu.replace("3","C")
                                 losu = losu.replace("4","D")
-                                screen.blit(myfont.render(losu , 1, (0,0,0)), (550+i*25, 615))
-                        screen.blit(myfont.render('A: '+Frage[2][0] , 1, (0,0,0)), (100, 550))
-                        screen.blit(myfont.render('B: '+Frage[2][1] , 1, (0,0,0)), (900, 550))
-                        screen.blit(myfont.render('C: '+Frage[2][2] , 1, (0,0,0)), (100, 680))
-                        screen.blit(myfont.render('D: '+Frage[2][3] , 1, (0,0,0)), (900, 680))
-                    if Frage[0]=="schaetzen":
-                        if buff2.get__LoesungAnzeigen():
-                            screen.blit(myfont.render(str(Frage[2]) , 1, (0,0,0)), (550, 615))
+                                if len(losung)<40:
+                                    screen.blit(myfont.render(losu+': '+losung , 1, (0,0,0)), (550, 615))
+                                else:
+                                    screen.blit(myfont.render(losu, 1, (0,0,0)), (550, 615))
+                            for i in range(4):
+                                if len(Frage[2][i])<40:
+                                    if (i==0 or i==2):
+                                        screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i] , 1, (0,0,0)), (100, 550+int(i/2)*130))
+                                    else:
+                                        screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i] , 1, (0,0,0)), (900, 550+int(i/2)*130))
+                                else:
+                                    Umbruch = Frage[2][i].find(" ",25)
+                                    if (i==0 or i==2):
+                                        screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i][:Umbruch] , 1, (0,0,0)), (100, 550+int(i/2)*130))
+                                        screen.blit(myfont.render('    '+Frage[2][i][Umbruch:] , 1, (0,0,0)), (100, 585+int(i/2)*130))
+                                    else:
+                                        screen.blit(myfont.render(chr(i+65)+': '+Frage[2][i][:Umbruch] , 1, (0,0,0)), (1050, 550+int(i/2)*130))
+                                        screen.blit(myfont.render('    '+Frage[2][i][Umbruch:] , 1, (0,0,0)), (900, 585+int(i/2)*130))
+
+                            #screen.blit(myfont.render('B: '+Frage[2][1] , 1, (0,0,0)), (1200, 500))
+                            #screen.blit(myfont.render('C: '+Frage[2][2] , 1, (0,0,0)), (300, 600))
+                            #screen.blit(myfont.render('D: '+Frage[2][3] , 1, (0,0,0)), (1200, 600))
+                        if Frage[0]=="sortier":
+                            if buff2.get__LoesungAnzeigen():
+                                for i in range(4):
+                                    losu = str(Frage[3][i])
+                                    losu = losu.replace("1","A")
+                                    losu = losu.replace("2","B")
+                                    losu = losu.replace("3","C")
+                                    losu = losu.replace("4","D")
+                                    screen.blit(myfont.render(losu , 1, (0,0,0)), (550+i*25, 615))
+                            screen.blit(myfont.render('A: '+Frage[2][0] , 1, (0,0,0)), (100, 550))
+                            screen.blit(myfont.render('B: '+Frage[2][1] , 1, (0,0,0)), (900, 550))
+                            screen.blit(myfont.render('C: '+Frage[2][2] , 1, (0,0,0)), (100, 680))
+                            screen.blit(myfont.render('D: '+Frage[2][3] , 1, (0,0,0)), (900, 680))
+                        if Frage[0]=="schaetzen":
+                            if buff2.get__LoesungAnzeigen():
+                                screen.blit(myfont.render(str(Frage[2]) , 1, (0,0,0)), (550, 615))
+                    except:
+                        print("error in frage anzeigen")
             screen.blit
             pygame.display.flip()
         pygame.quit()
