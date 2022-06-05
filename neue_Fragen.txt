@@ -1,0 +1,17 @@
+normal#Dies ist ein Test bitte a: richtig antworten#richtig#falsch#falsch#falsch#a
+normal#Was sind Phagen?#Bakterien#Viren#Archaeen#Prionen#b
+schaetzen#Wann fand die letzte Invasion in Großbritannien statt?#1797
+normal#Wie heißt das Gremium der Staats- und Regierungschefs der Europäischen Union?#Europarat#Rat der Europäischen Union#Rat von Europa#Europäischer Rat#d
+sortier#Ordne die Menschen die (heutigen) Ländern Italien, Polen, Spanien und Frankreich in den ihr Geburtsort liegt zu#Victor Hugo#Pablo Picasso#Christoph Kolumbus#Marie Curie#c#d#b#a
+normal#Welcher Künstler hat die meisten Nummer 1 Hits in der deutschen Charts Geschichte?#The Beatles#Apache 207#Capital Bra#ABBA#c
+normal#Welche dieser Sportarten war 2021 zum ersten Mal Teil der olympischen Spiele?#Skateboard#Cricket#Taekwondo#Disc Golf#a
+schaetzen#Wie viele (offizielle) Nachkommen hat Queen Elizabeth?#24
+normal#Was war bei den Römer zum Zähneputzen bliebt?#Italienischer Kalkstein#Portugiesischer Urin#Franzöischer Sabolnsand#Griechisches Meerwasser#b
+sortier#Sortiere diese ostfriesischen Städte absteigend nach Einwohnern:#Aurich#Leer#Emden#Norden#c#a#b#d
+normal#Was ist der größte Mond in unserem Sonnensystem#Titan#Mond#Ganymed#Europa#c
+sortier#Sortiere diese Länder absteigend nach der durchschnittlichen Körpergröße einer 1996 geborenen Frau#USA#Brasilien#Tschechien#Frankreich#c#d#a#b
+normal#Welche Art von Tieren sind Palmendiebe?#Affen#Schnecken#Papageien#Krabben#d
+schaetzen#Was ist der mittlere Durchmesser des Mondes in Kilometer#3474
+normal#Warum schwammen 2016 etwa 50 Kubikmeter Popcorn vor Helgoland im Meer#Als Fischfutter um die Heringspopulation zu stabilisieren#Illegale Entsorgung überschüssiger Bestände des Inselfestes#Um Strömungssimulationen für Offshore-Windparks zu verifizieren#Um das Erkennen von Meeresverschmutzungen mit Satelliten zu testen#d
+normal#Was beschreibt ein Ostfriese (zum Beispiel Herbert)mit dem Wort „Fielapper“?#Schmetterling#Fahrrad#Pferdeapfel#Kleinkind#a
+sortier#Keine Frage, Quiz vorbei#wirklich vorbei#Frage nur aus#Sicherheitsgründen#Lösung errät ihr nie#c#a#d#b
